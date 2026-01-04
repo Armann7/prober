@@ -1,0 +1,142 @@
+[
+  {
+    "allows_bounty_splitting": false,
+    "average_time_to_bounty_awarded": null,
+    "average_time_to_first_program_response": 6.0,
+    "average_time_to_report_resolved": 67.0,
+    "handle": "bankunited",
+    "id": 0,
+    "managed_program": true,
+    "name": "BankUnited",
+    "offers_bounties": false,
+    "offers_swag": false,
+    "response_efficiency_percentage": 93,
+    "submission_state": "open",
+    "url": "https://hackerone.com/bankunited",
+    "website": "http://bankunited.com",
+    "targets": {
+      "in_scope": [
+        {
+          "asset_identifier": "buconnectfl.bankunited.com",
+          "asset_type": "URL",
+          "availability_requirement": null,
+          "confidentiality_requirement": null,
+          "eligible_for_bounty": false,
+          "eligible_for_submission": true,
+          "instruction": "",
+          "integrity_requirement": null,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "buconnectny.bankunited.com",
+          "asset_type": "URL",
+          "availability_requirement": null,
+          "confidentiality_requirement": null,
+          "eligible_for_bounty": false,
+          "eligible_for_submission": true,
+          "instruction": "",
+          "integrity_requirement": null,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "ccr.bankunited.com",
+          "asset_type": "URL",
+          "availability_requirement": null,
+          "confidentiality_requirement": null,
+          "eligible_for_bounty": false,
+          "eligible_for_submission": true,
+          "instruction": "",
+          "integrity_requirement": null,
+          "max_severity": "critical"
+        }
+      ],
+      "out_of_scope": []
+    }
+  },
+  {
+    "allows_bounty_splitting": false,
+    "average_time_to_bounty_awarded": null,
+    "average_time_to_first_program_response": 11.0,
+    "average_time_to_report_resolved": 83.0,
+    "handle": "mueller_water_products_vdp",
+    "id": 0,
+    "managed_program": true,
+    "name": "Mueller Water Products (VDP)",
+    "offers_bounties": false,
+    "offers_swag": false,
+    "response_efficiency_percentage": 100,
+    "submission_state": "open",
+    "url": "https://hackerone.com/mueller_water_products_vdp",
+    "website": "http://muellerwaterproducts.com",
+    "targets": {
+      "in_scope": [],
+      "out_of_scope": []
+    }
+  },
+  {
+    "allows_bounty_splitting": true,
+    "average_time_to_bounty_awarded": 106.0,
+    "average_time_to_first_program_response": 7.0,
+    "average_time_to_report_resolved": null,
+    "handle": "doordash",
+    "id": 0,
+    "managed_program": true,
+    "name": "DoorDash",
+    "offers_bounties": true,
+    "offers_swag": false,
+    "response_efficiency_percentage": 96,
+    "submission_state": "open",
+    "url": "https://hackerone.com/doordash",
+    "website": "http://doordash.com",
+    "targets": {
+      "in_scope": [
+        {
+          "asset_identifier": "com.dd.doordash",
+          "asset_type": "GOOGLE_PLAY_APP_ID",
+          "availability_requirement": null,
+          "confidentiality_requirement": null,
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "instruction": "Consumer Android: https://play.google.com/store/apps/details?id=com.dd.doordash",
+          "integrity_requirement": null,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "www.doordash.com",
+          "asset_type": "URL",
+          "availability_requirement": null,
+          "confidentiality_requirement": null,
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "instruction": null,
+          "integrity_requirement": null,
+          "max_severity": "critical"
+        }
+      ],
+      "out_of_scope": [
+        {
+          "asset_identifier": "*.dashapi.com",
+          "asset_type": "WILDCARD",
+          "availability_requirement": null,
+          "confidentiality_requirement": null,
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "instruction": "",
+          "integrity_requirement": null,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "*.doorcrawl.com",
+          "asset_type": "WILDCARD",
+          "availability_requirement": null,
+          "confidentiality_requirement": null,
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "instruction": "",
+          "integrity_requirement": null,
+          "max_severity": "none"
+        }
+      ]
+    }
+  }
+]

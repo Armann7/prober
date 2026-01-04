@@ -1,0 +1,87 @@
+[
+  {
+    "id": "e67941f1-2087-4681-8718-3e3f4dc51798",
+    "name": "AMD Product Security Bug Bounty Program",
+    "company_handle": "amd",
+    "handle": "amd",
+    "url": "https://www.intigriti.com/programs/amd/amd/detail",
+    "status": "open",
+    "confidentiality_level": "public",
+    "tacRequired": false,
+    "twoFactorRequired": false,
+    "min_bounty": {
+      "value": 500,
+      "currency": "USD"
+    },
+    "max_bounty": {
+      "value": 30000,
+      "currency": "USD"
+    },
+    "targets": {
+      "in_scope": [
+        {
+          "type": "other",
+          "endpoint": "Hardware",
+          "description": "Vulnerabilities in the physical hardware of **in scope** products and technologies",
+          "impact": "Tier 1"
+        },
+        {
+          "type": "other",
+          "endpoint": "Firmware",
+          "description": "Vulnerabilities in the firmware of **in scope** products and technologies",
+          "impact": "Tier 2"
+        }
+      ],
+      "out_of_scope": [
+        {
+          "type": "other",
+          "endpoint": "Out of Scope",
+          "description": "* Optional tools\n* Installer issues\n* Product-independent software\n* Software for products and technologies for out of scope products\n",
+          "impact": "Out of scope"
+        }
+      ]
+    }
+  },
+  {
+    "id": "30f445f7-ca4c-4130-9434-49add5c6ac74",
+    "name": "Algemeen Dagblad",
+    "company_handle": "dpgm",
+    "handle": "algemeendagblad",
+    "url": "https://www.intigriti.com/programs/dpgm/algemeendagblad/detail",
+    "status": "open",
+    "confidentiality_level": "public",
+    "tacRequired": false,
+    "twoFactorRequired": false,
+    "min_bounty": {
+      "value": 25,
+      "currency": "EUR"
+    },
+    "max_bounty": {
+      "value": 2200,
+      "currency": "EUR"
+    },
+    "targets": {
+      "in_scope": [
+        {
+          "type": "url",
+          "endpoint": "myaccount.ad.nl",
+          "description": null,
+          "impact": "Tier 2"
+        },
+        {
+          "type": "url",
+          "endpoint": "webwinkel.ad.nl",
+          "description": null,
+          "impact": "Tier 2"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.ad.nl",
+          "description": "excluding abonnement.ad.nl",
+          "impact": "Tier 3"
+        }
+      ],
+      "out_of_scope": []
+    }
+  }
+]

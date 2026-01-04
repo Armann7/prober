@@ -1,0 +1,64 @@
+[
+  {
+    "id": "11f3b580-8ce4-4fcf-b750-4eb2f7c28bef",
+    "name": "AngelList VDP",
+    "offers_awards": false,
+    "url": "https://www.federacy.com/angellist-vdp",
+    "targets": {
+      "in_scope": [
+        {
+          "type": "website",
+          "target": "*.angellist.com"
+        }
+      ],
+      "out_of_scope": [
+        {
+          "type": "website",
+          "target": "Wellfound"
+        },
+        {
+          "type": "website",
+          "target": "*.relay.angellist.com"
+        },
+        {
+          "type": "website",
+          "target": "relay.angellist.com"
+        }
+      ]
+    }
+  },
+  {
+    "id": "f7499878-7561-4d21-ac85-176ca797d5b1",
+    "name": "eqtble",
+    "offers_awards": false,
+    "url": "https://www.federacy.com/eqtble",
+    "targets": {
+      "in_scope": [
+        {
+          "type": "website",
+          "target": "app.eqtble.com"
+        },
+        {
+          "type": "api",
+          "target": "api.eqtble.com"
+        }
+      ],
+      "out_of_scope": []
+    }
+  },
+  {
+    "id": "5ce7ecf6-a0a2-4afd-b1c3-d0e54a5d30e5",
+    "name": "okteto",
+    "offers_awards": false,
+    "url": "https://www.federacy.com/okteto",
+    "targets": {
+      "in_scope": [
+        {
+          "type": "website",
+          "target": "https://okteto.com"
+        }
+      ],
+      "out_of_scope": []
+    }
+  }
+]

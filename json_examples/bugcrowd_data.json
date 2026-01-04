@@ -1,0 +1,93 @@
+[
+  {
+    "name": "CoinDesk Data - Data API ",
+    "url": "https://bugcrowd.com/engagements/CCData-mbb-og",
+    "allows_disclosure": false,
+    "managed_by_bugcrowd": true,
+    "safe_harbor": "full",
+    "max_payout": 7500,
+    "targets": {
+      "in_scope": [
+        {
+          "type": "api",
+          "target": "http://data-api.coindesk.com/",
+          "uri": "http://data-api.coindesk.com/",
+          "name": "CoinDesk Data - Data API",
+          "ipAddress": ""
+        },
+        {
+          "type": "api",
+          "target": "https://tools-api.cryptocompare.com/",
+          "uri": "https://tools-api.cryptocompare.com/",
+          "name": "CoinDesk Data - Tools API",
+          "ipAddress": ""
+        }
+      ],
+      "out_of_scope": [
+        {
+          "type": "website",
+          "target": "https://www.coindesk.com/",
+          "uri": "https://www.coindesk.com/",
+          "name": "coindesk.com",
+          "ipAddress": ""
+        },
+        {
+          "type": "website",
+          "target": "https://developers.coindesk.com",
+          "uri": "https://developers.coindesk.com",
+          "name": "developers.coindesk.com",
+          "ipAddress": ""
+        }
+      ]
+    }
+  },
+  {
+    "name": "Acorns Grow, Inc.",
+    "url": "https://bugcrowd.com/engagements/acorns",
+    "allows_disclosure": true,
+    "managed_by_bugcrowd": true,
+    "safe_harbor": "full",
+    "max_payout": 4000,
+    "targets": {
+      "in_scope": [
+        {
+          "type": "website",
+          "target": "https://acorns.com/",
+          "uri": "https://acorns.com/",
+          "name": "*.acorns.com/",
+          "ipAddress": null
+        },
+        {
+          "type": "other",
+          "target": "https://apps.apple.com/us/app/acorns-invest-spare-change/id883324671",
+          "uri": "https://apps.apple.com/us/app/acorns-invest-spare-change/id883324671",
+          "name": "Acorns for iOS",
+          "ipAddress": null
+        },
+        {
+          "type": "api",
+          "target": "https://graphql.acorns.com",
+          "uri": "https://graphql.acorns.com",
+          "name": "https://graphql.acorns.com",
+          "ipAddress": null
+        }
+      ],
+      "out_of_scope": [
+        {
+          "type": "website",
+          "target": "share.acorns.com",
+          "uri": "",
+          "name": "share.acorns.com",
+          "ipAddress": ""
+        },
+        {
+          "type": "website",
+          "target": "store.acorns.com",
+          "uri": "",
+          "name": "store.acorns.com",
+          "ipAddress": ""
+        }
+      ]
+    }
+  }
+]

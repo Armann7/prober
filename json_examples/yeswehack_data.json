@@ -1,0 +1,108 @@
+[
+  {
+    "id": "outscale",
+    "name": "3DS OUTSCALE",
+    "public": true,
+    "disabled": false,
+    "managed": null,
+    "min_bounty": 50,
+    "max_bounty": 5000,
+    "targets": {
+      "in_scope": [
+        {
+          "target": "https://cockpit-eu-west-2.outscale.com/",
+          "type": "web-application"
+        },
+        {
+          "target": "https://fcu.eu-west-2.outscale.com",
+          "type": "api"
+        },
+        {
+          "target": "Any resource created or accessed with the Outscale Cloud on eu-west-2 region -  created by the Hunter",
+          "type": "other"
+        }
+      ],
+      "out_of_scope": [
+        {
+          "target": "Any resource created or accessed with the Outscale Cloud, on all regions - except the ones created by the Hunter",
+          "type": "other"
+        },
+        {
+          "target": "Other subdomains on outscale.com (wiki.outscale.net, fr.outscale.com, en.outscale.com... )",
+          "type": "other"
+        },
+        {
+          "target": "E-mail server configuration (DKIM/SPF/DMARC)",
+          "type": "other"
+        },
+        {
+          "target": "Dataleaks or 3DS OUTSCALE-related vulnerabilities outside the scope of the IaaS Cloud Service.",
+          "type": "other"
+        }
+      ]
+    }
+  },
+  {
+    "id": "atg-public-bug-bounty-program",
+    "name": "ATG Public Bug Bounty Program",
+    "public": true,
+    "disabled": false,
+    "managed": null,
+    "min_bounty": 0,
+    "max_bounty": 4000,
+    "targets": {
+      "in_scope": [
+        {
+          "target": "*.atg.se",
+          "type": "other"
+        },
+        {
+          "target": "www.atg.se",
+          "type": "web-application"
+        },
+        {
+          "target": "api.atg.se",
+          "type": "api"
+        },
+        {
+          "target": "iam.atg.se",
+          "type": "web-application"
+        },
+        {
+          "target": "https://apps.apple.com/se/app/atg/id1434660322",
+          "type": "mobile-application-ios"
+        },
+        {
+          "target": "https://apps.apple.com/se/app/atg-live/id1608156355",
+          "type": "other"
+        },
+        {
+          "target": "https://play.google.com/store/apps/details?id=se.atg.live&hl=en&gl=SE",
+          "type": "mobile-application-android"
+        }
+      ],
+      "out_of_scope": [
+        {
+          "target": "fraga.atg.se (external supplier)",
+          "type": "other"
+        },
+        {
+          "target": "hittabutik.atg.se (external supplier)",
+          "type": "other"
+        },
+        {
+          "target": "kundo.atg.se (external supplier)",
+          "type": "other"
+        },
+        {
+          "target": "shop.atg.se (external supplier)",
+          "type": "other"
+        },
+        {
+          "target": "webbshop.atg.se (external supplier)",
+          "type": "other"
+        }
+      ]
+    }
+  }
+]
