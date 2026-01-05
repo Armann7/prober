@@ -8,7 +8,7 @@ from pathlib import Path
 
 @dataclass(frozen=True)
 class CLIOptions:
-    bounty_targets_data: Path
+    targets_data: Path
     outdir: Path
 
 
@@ -20,17 +20,24 @@ def parse_args(argv: Sequence[str]) -> CLIOptions:
         ),
     )
     parser.add_argument(
-        "bounty_targets_data",
+        "--targets_data",
+        dest="targets_data",
         type=Path,
+        required=True,
         help="Path to a bounty-targets-data JSON file or a directory containing JSON files.",
     )
     parser.add_argument(
-        "outdir",
+        "--outdir",
         type=Path,
+        required=True,
         help="Directory where scan results and reports will be written.",
     )
     args = parser.parse_args(argv)
-    return CLIOptions(
-        bounty_targets_data=args.bounty_targets_data,
+    cli_options = CLIOptions(
+        targets_data=args.targets_data,
         outdir=args.outdir,
     )
+    if not cli_options.targets_data.exists():
+        raise RuntimeError(f"{cli_options.targets_data} does not exist")
+    cli_options.outdir.mkdir(exist_ok=True)
+    return cli_options

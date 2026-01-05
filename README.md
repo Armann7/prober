@@ -43,10 +43,10 @@ Prober is operated via a command-line interface (CLI).
 
 ### Parameters
 
-* `bounty-targets-data`
+* `--targets_data`
   Path to a file or a directory containing JSON scope files (from the cloned repository)
 
-* `outdir`
+* `--outdir`
   Path to the directory where scan results and reports will be written
 
 ## Intended Use

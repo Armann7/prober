@@ -2,12 +2,13 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from loader import load_targets
 from loader import Target
+from loader import load_targets
 
 
 def test_load_targets_returns_expected_in_scope_targets() -> None:
-    json_path = Path(__file__).resolve().parent.parent / "json_examples" / "bugcrowd_data.json"
+    project_dir = Path(__file__).resolve().parent.parent 
+    json_path = project_dir / "source_json_examples" / "bugcrowd_data.json"
 
     targets = set(load_targets(json_path))
 
@@ -34,4 +35,3 @@ def test_load_targets_returns_expected_in_scope_targets() -> None:
         ),
     }
     assert targets == expected
-

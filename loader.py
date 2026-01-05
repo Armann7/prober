@@ -1,14 +1,10 @@
-from __future__ import annotations
-
 import json
-
 from collections.abc import Collection
 from collections.abc import Iterable
 from collections.abc import Mapping
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
-
 
 _ALLOWED_TARGET_TYPES = {
     'api',
@@ -24,12 +20,11 @@ class Target:
 
 def load_targets(target_path: Path) -> Collection[Target]:
     if not target_path.exists():
-        raise RuntimeError(f"Path {target_path!s} does not exist")
+        raise RuntimeError(f"Path {target_path} does not exist")
     json_paths: Iterable[Path]
     if target_path.is_dir():
         json_paths = sorted(
-            path for path in target_path.iterdir() if path.is_file() and path.suffix == ".json"
-        )
+            path for path in target_path.iterdir() if path.is_file() and path.suffix == ".json")
     else:
         json_paths = (target_path,)
     all_targets: list[Target] = []
@@ -47,6 +42,7 @@ def _load_bugcrowd_program(raw_data: Mapping[str, Any]) -> Collection[Target]:
     result: list[Target] = []
     for target_raw in raw_data['targets']['in_scope']:
         if target_raw['type'] in _ALLOWED_TARGET_TYPES:
-            target = Target(target_raw['name'], target_raw['type'], target_raw['target'])
-            result.append(target)
+            if target_raw['uri']:
+                target = Target(target_raw['name'], target_raw['type'], target_raw['uri'])
+                result.append(target)
     return result
