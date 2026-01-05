@@ -7,7 +7,7 @@ from loader import Target
 
 
 def test_load_targets_returns_expected_in_scope_targets() -> None:
-    json_path = Path(__file__).resolve().parent.parent / "json_examples" / "bugcrowd_data.json"
+    json_path = Path(__file__).resolve().parent.parent / "source_json_examples" / "bugcrowd_data.json"
 
     targets = set(load_targets(json_path))
 

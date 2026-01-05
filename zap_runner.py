@@ -1,13 +1,18 @@
 from __future__ import annotations
 
 import asyncio
+from collections.abc import Collection, Mapping
+from functools import cache
 import json
 import logging
+from re import U
 import tempfile
 from pathlib import Path
-from typing import Any, Literal
+from typing import Any
+from typing import Literal
 
 
+MessageLevel = Literal['info', 'low', 'medium', 'high']
 ZapScanType = Literal['base', 'full', 'api']
 _ZAP_SCRIPT = {
     'full': 'zap-full-scan.py',
@@ -15,12 +20,36 @@ _ZAP_SCRIPT = {
     'api': 'zap-api-scan.py',
     }
 
+class ZapScanResult:
 
-async def zap_scan(target_url: str, scan_type: ZapScanType) -> dict[str, Any]:
+    def __init__(self, url: str, raw: Mapping[str, Any]):
+        self._scanner = 'zap'
+        self._url = url
+        self._raw = raw
+
+    def write_report(self, folder: Path):
+        file: Path = folder / self._filename()
+        file.write_text(json.dumps(self._raw, indent=4))
+
+    @cache
+    def messages(self, levels: Collection[MessageLevel]) -> Collection[Mapping[str, Any]]:
+        return [i for i in self._raw['insights'] if i['level'].lower() in levels]
+
+    def __repr__(self) -> str:
+        return f'{self._scanner} - {self._url}'
+
+    def _filename(self) -> Path:
+        unwanted_symbols = ':/\\*?+'
+        translation_table = str.maketrans(unwanted_symbols, '_' * len(unwanted_symbols))
+        sanitized_url = self._url.rstrip('/').translate(translation_table)
+        return Path(f'{self._scanner}-{sanitized_url}.json')
+    
+
+
+async def zap_scan(target_url: str, scan_type: ZapScanType) -> ZapScanResult:
     if not target_url:
         raise ValueError("target_url must be a non-empty string")
     docker_image = "ghcr.io/zaproxy/zaproxy:stable"
-    zap_script = 'zap-full-scan.py' if scan_type == 'full' else 'zap-full-scan.py'
     with tempfile.TemporaryDirectory() as workdir_str:
         workdir = Path(workdir_str)
         report_name = "zap-report.json"
@@ -42,7 +71,8 @@ async def zap_scan(target_url: str, scan_type: ZapScanType) -> dict[str, Any]:
             # raise RuntimeError(f"ZAP scan failed (exit code {process.returncode}): {output.strip()}")
         if not report_path.exists():
             raise RuntimeError("ZAP JSON report was not produced")
-        return json.loads(report_path.read_text())
+        raw_data = json.loads(report_path.read_text())
+        return ZapScanResult(target_url, raw_data)
 
 
 _logger = logging.getLogger(__name__)

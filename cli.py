@@ -17,20 +17,23 @@ def parse_args(argv: Sequence[str]) -> CLIOptions:
     parser = argparse.ArgumentParser(
         description=(
             "Automated reconnaissance and vulnerability probing tool for bounty scope data."
-        ),
-    )
+            ),
+        )
     parser.add_argument(
         "bounty_targets_data",
         type=Path,
         help="Path to a bounty-targets-data JSON file or a directory containing JSON files.",
-    )
+        )
     parser.add_argument(
         "outdir",
         type=Path,
         help="Directory where scan results and reports will be written.",
-    )
+        )
     args = parser.parse_args(argv)
-    return CLIOptions(
+    cli_options = CLIOptions(
         bounty_targets_data=args.bounty_targets_data,
-        outdir=args.outdir,
-    )
+        outdir=args.outdir)
+    if not cli_options.bounty_targets_data.exists():
+        raise RuntimeError(f"{args.bounty_targets_data} is not exists")
+    cli_options.outdir.mkdir(exist_ok=True)
+    return cli_options
