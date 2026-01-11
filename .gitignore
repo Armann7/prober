@@ -1,5 +1,11 @@
 __pycache__/
 .pytest_cache/
 .vscode/
+.ruff_cache/
 .outdata/
 .python_version
+.codex/log/
+.codex/sessions/
+.codex/auth.json
+.codex/history.jsonl
+.codex/config.toml

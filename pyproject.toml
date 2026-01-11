@@ -9,6 +9,9 @@ dependencies = []
 [tool.ruff]
 line-length = 100
 target-version = "py314"
+exclude = [
+    ".codex/skills/",
+    ]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "RUF"]

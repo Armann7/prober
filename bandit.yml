@@ -1,1 +1,4 @@
-exclude_dirs: ['tests']
+exclude_dirs:
+  - tests
+  - .codex
+  - .venv
