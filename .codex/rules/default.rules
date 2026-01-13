@@ -1,3 +1,7 @@
 prefix_rule(pattern=["uv", "run", "ruff", "check", "."], decision="allow")
 prefix_rule(pattern=["uv", "run", "ruff", "format", "--check", "."], decision="allow")
 prefix_rule(pattern=["uv", "run", "mypy", "."], decision="allow")
+prefix_rule(pattern=["git", "fetch", "--all", "--prune"], decision="allow")
+prefix_rule(pattern=["/bin/bash", "-lc", "git ls-remote --heads origin | rg -o \"refs/heads/([0-9]+)-document-existing-app$\" -r \"$1\""], decision="allow")
+prefix_rule(pattern=["/bin/bash", "-lc", "git branch | rg -o \"^[* ]*([0-9]+)-document-existing-app$\" -r \"$1\""], decision="allow")
+prefix_rule(pattern=["/bin/bash", "-lc", "{ git ls-remote --heads origin | rg -o \"refs/heads/([0-9]+)-document-existing-app$\" -r \"$1\" || true; git branch | rg -o \"^[* ]*([0-9]+)-document-existing-app$\" -r \"$1\" || true; rg --files -g \"specs/[0-9]+-document-existing-app\" | rg -o \"specs/([0-9]+)-document-existing-app\" -r \"$1\" || true; } | sort -n | tail -n 1"], decision="allow")
